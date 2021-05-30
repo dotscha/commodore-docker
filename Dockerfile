@@ -14,7 +14,7 @@ RUN apk update && \
     apk add gzip zip unzip && \
     apk add grep sed gawk util-linux bash && \
     apk add git subversion wget nano vim mc && \
-    apk add make gcc g++ python2 python3 perl && \
+    apk add make gcc g++ python3 && \
     apk add openjdk11
 
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
@@ -38,7 +38,7 @@ RUN mkdir tools/kickass && unzip -d tools/kickass Kick* && rm Kick*.zip && \
 
 # CC65
 WORKDIR /home/dev/tools
-RUN git clone https://github.com/cc65/cc65 && make -C cc65
+RUN git clone https://github.com/cc65/cc65 && make -C cc65 
 ENV CC65_INC=/home/dev/tools/cc65/include
 ENV LD65_LIB=/home/dev/tools/cc65/lib
 ENV LD65_CFG=/home/dev/tools/cc65/cfg
