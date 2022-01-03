@@ -15,7 +15,7 @@ Because you can't always install everything you want.
  
 ## Run
 
-This works on Windows in WSL:
+This works on Windows in WSL (see x.sh):
 ```
 $ docker run -it --rm -e DISPLAY=host.docker.internal:0.0 -v `pwd`:/root/files --net=host adotsch/plus4emu [optional command]
 ```
