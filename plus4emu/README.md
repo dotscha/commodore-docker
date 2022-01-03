@@ -19,7 +19,7 @@ This works on Windows in WSL:
 ```
 $ docker run -it --rm -e DISPLAY=host.docker.internal:0.0 -v `pwd`:/root/files --net=host adotsch/plus4emu
 ```
-Or this is in CMD or PowerShell:
+Or this in CMD or PowerShell:
 ```
 > docker run -it --rm -e DISPLAY=host.docker.internal:0.0 -v <your path>:/root/files --net=host adotsch/plus4emu
 ```
