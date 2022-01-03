@@ -31,4 +31,4 @@ root@docker-desktop:~# plus4emu -prg files/demo.prg &
 
 ## Issues
 
- * no audio yet :(
+ * no audio yet, but [this might help](https://arnav.jain.se/2020/enable-audio--video-in-docker-container/)
