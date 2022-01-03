@@ -2,7 +2,7 @@ FROM debian:buster-slim
 
 RUN apt-get update &&   \
   apt-get install -y    \ 
-	libfltk-gl1.3      \
+	libfltk-gl1.3 libfltk-images1.3 \
 	libportaudio2    \
 	libsndfile1     \
 	libsdl1.2debian \
