@@ -1,6 +1,6 @@
 # Plus4Emu in Docker
 
-This repo has a dockerfiles to build and run Plus4Emu from a Docker container.
+This repo has dockerfiles to build and run Plus4Emu from a Docker container.
 
 ## Why?
 
