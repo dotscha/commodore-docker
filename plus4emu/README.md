@@ -19,7 +19,7 @@ This works on Windows in WSL:
 ```
 $ docker run -it --rm -e DISPLAY=host.docker.internal:0.0 -v `pwd`:/root/files --net=host adotsch/plus4emu
 ```
-Or this is in CMD or PowerShell:
+Or this in CMD or PowerShell:
 ```
 > docker run -it --rm -e DISPLAY=host.docker.internal:0.0 -v <your path>:/root/files --net=host adotsch/plus4emu
 ```
@@ -31,4 +31,4 @@ root@docker-desktop:~# plus4emu -prg files/demo.prg &
 
 ## Issues
 
- * no audio yet :(
+ * no audio yet, but [this might help](https://arnav.jain.se/2020/enable-audio--video-in-docker-container/)
