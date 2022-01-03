@@ -13,17 +13,6 @@ Because you can't always install everything you want.
    * Linux: you likely have one
    * Windows: try [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/)
  
-## Download or Build
-
-You can download this image with:
-```
-$ docker pull adotsch/plus4emu 
-```
-Or build locally
-```
-$ docker build -t adotsch/plus4emu .
-```
-
 ## Run
 
 This works on Windows in WSL:

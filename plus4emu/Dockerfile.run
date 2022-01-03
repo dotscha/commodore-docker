@@ -1,0 +1,20 @@
+FROM debian:buster-slim
+
+RUN apt-get update &&   \
+  apt-get install -y    \ 
+	libfltk-gl1.3      \
+	libportaudio2    \
+	libsndfile1     \
+	libsdl1.2debian \
+	liblua5.3-0
+
+ENV HOME="/root"
+ENV PATH="$HOME/bin:${PATH}"
+
+WORKDIR /root
+
+COPY p4e.tar .
+
+RUN tar -xf p4e.tar && rm p4e.tar
+
+

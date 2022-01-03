@@ -21,5 +21,3 @@ ENV HOME="/root"
 ENV PATH="$HOME/bin:${PATH}"
 
 WORKDIR /root
-
-ENTRYPOINT ["bash"]
