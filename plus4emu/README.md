@@ -28,6 +28,13 @@ If no command given it will mount your current folder as /root/files and give yo
 ```
 root@docker-desktop:~# plus4emu -prg files/demo.prg &
 ```
+## Build
+
+The mk.sh script builds the docker image, you don't have to run this unless you want to modify something.
+
+First it builds an image for compiling plus4emu from latest source code using dev libs.
+
+When that's done all the important files are packed into a tar file and a second smaller image is build with only the neccesar dependencies and the compiled plus4emu.
 
 ## Issues
 
