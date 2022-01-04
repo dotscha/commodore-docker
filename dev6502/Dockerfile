@@ -31,7 +31,7 @@ RUN mkdir tools/asl && \
     rm -rf a
 
 # KickAss
-COPY Kick*5.2.zip .
+COPY Kick*5.23.zip .
 RUN mkdir tools/kickass && unzip -d tools/kickass Kick* && rm Kick*.zip && \
     echo "java -jar /home/dev/tools/kickass/KickAss.jar \$@" > bin/kickass && \
     chmod +x bin/kickass
