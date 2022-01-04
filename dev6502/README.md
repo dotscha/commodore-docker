@@ -2,7 +2,17 @@
 
 Docker image for 6502 development, mainly for commodore machines.
 
-* High level languages 
+## Run
+
+This will mount your current directory as /home/dev/src and give you a prompt there:
+
+```
+$ docker run -it --rm -v `pwd`:/home/dev/src -w /home/dev/src adotsch/dev6502
+```
+
+## Contents
+
+* High-level languages 
     * C (GCC)
     * C++ (G++)
     * Java (OpenJDK11)
