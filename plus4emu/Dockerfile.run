@@ -1,12 +1,14 @@
-FROM debian:buster-slim
+FROM alpine
 
-RUN apt-get update &&   \
-  apt-get install -y    \ 
-	libfltk-gl1.3 libfltk-images1.3 \
-	libportaudio2    \
-	libsndfile1     \
-	libsdl1.2debian \
-	liblua5.3-0
+RUN apk update &&   \
+  apk add --no-cache   \ 
+	fltk fltk-fluid \
+	portaudio    \
+	libsndfile     \
+	sdl \
+	lua5.3 \
+	fontconfig ttf-dejavu \
+	less mc
 
 ENV HOME="/root"
 ENV PATH="$HOME/bin:${PATH}"

@@ -1,12 +1,13 @@
-FROM alpine
+FROM debian:buster-slim
 
-RUN apk update && \
-	apk add git gcc g++ scons	\
-	fltk-dev fltk-fluid \
-	portaudio-dev \
-	libsndfile-dev \
-	sdl-dev \
-	lua5.3-dev
+RUN apt-get update &&   \
+  apt-get install -y    \ 
+	git gcc g++ scons   \
+	libfltk1.3-dev      \
+	portaudio19-dev     \
+	libsndfile1-dev     \
+	libsdl-dev          \
+	liblua5.3-dev
 
 RUN mkdir /home/dev
 WORKDIR /home/dev
