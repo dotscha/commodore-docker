@@ -15,7 +15,8 @@ RUN apk update && \
     apk add grep sed gawk util-linux bash && \
     apk add git subversion wget nano vim mc && \
     apk add make gcc g++ python3 && \
-    apk add openjdk11
+    apk add openjdk11 && \
+	rm -rf /etc/apk/cache
 
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
 ENV PATH="$JAVA_HOME/bin:${PATH}"
@@ -92,6 +93,11 @@ RUN unzip -d krill-v184 loader.zip && rm loader.zip && \
     mv krill*/loader/tools/cc1541/cc1541 $HOME/bin && \
     make -C krill*/loader/tools/pucrunch && \
     mv krill*/loader/tools/pucrunch/pucrunch $HOME/bin
+
+# Bitfire+4
+RUN git clone https://github.com/dotscha/bitfire.git && \
+	make -C bitfire/bitfire bitnax d64write installer.prg installers && \
+	mv bitfire/bitfire/bitnax bitfire/bitfire/d64write $HOME/bin
 
 WORKDIR /home/dev
 
