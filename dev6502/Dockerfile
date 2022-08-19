@@ -32,7 +32,7 @@ RUN mkdir tools/asl && \
     rm -rf a
 
 # KickAss
-COPY Kick*5.23.zip .
+COPY Kick*5.24.zip .
 RUN mkdir tools/kickass && unzip -d tools/kickass Kick* && rm Kick*.zip && \
     echo "java -jar /home/dev/tools/kickass/KickAss.jar \$@" > bin/kickass && \
     chmod +x bin/kickass
@@ -86,7 +86,7 @@ RUN wget https://bitbucket.org/magli143/exomizer/wiki/downloads/exomizer-3.1.1.z
     ln -s $HOME/tools/exomizer3.1.1 $HOME/tools/exomizer-latest
 
 # Krill's loader v184
-WORKDIR /home/dev/tools/
+WORKDIR /home/dev/loaders/
 COPY loader-v184.zip loader.zip
 RUN unzip -d krill-v184 loader.zip && rm loader.zip && \
     make -C krill*/loader/tools/cc1541 && \
@@ -95,9 +95,20 @@ RUN unzip -d krill-v184 loader.zip && rm loader.zip && \
     mv krill*/loader/tools/pucrunch/pucrunch $HOME/bin
 
 # Bitfire+4
-RUN git clone https://github.com/dotscha/bitfire.git && \
-	make -C bitfire/bitfire bitnax d64write installer.prg installers && \
-	mv bitfire/bitfire/bitnax bitfire/bitfire/d64write $HOME/bin
+RUN git clone https://github.com/dotscha/bitfire.git bf && \
+	mkdir bitfire+4 && \
+	make -C bf/bitfire bitnax d64write installer.prg installers && \
+	cp bf/bitfire/bitnax bf/bitfire/d64write $HOME/bin && \
+	cp bf/bitfire/installer_c64.prg bf/bitfire/loader_*_c64.inc \
+	   bf/bitfire/installer_plus4_multi*.prg bf/bitfire/loader_*_plus4_multi*.inc \
+	   bf/bitfire/installer_plus4_1551.prg bf/bitfire/loader_*_plus4_1551.inc \
+	   bf/link_macros_*.inc bf/bitfire/request_disc.asm bf/bitfire/reset_drive.asm \
+	   bf/changelog bf/readme*.txt bitfire+4 && \
+	sed -i 's/\.\.\/bitfire\///' bf/bootdisk/build.sh && \
+	sed -i 's/\.\.\/bitfire/\.\./' bf/bootdisk/boot.asm && \
+	rm bf/bootdisk/build.bat && \ 
+	cp -r bf/bootdisk bitfire+4 && \
+	rm -rf bf
 
 WORKDIR /home/dev
 
