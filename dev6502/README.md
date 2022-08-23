@@ -19,7 +19,7 @@ $ docker run -it --rm -v `pwd`:/home/dev/src -w /home/dev/src adotsch/dev6502
     * Python 3
 
 * Assembly compilers
-    * ASL
+    * ASL (Bld 228)
     * KickAss 5.23
     * CC65
     * ACME
@@ -28,6 +28,7 @@ $ docker run -it --rm -v `pwd`:/home/dev/src -w /home/dev/src adotsch/dev6502
 
 * Loaders
     * Krill's Loader v184
+    * Bitfire+4
 
 * Utils
     * Exomizer 2.0.11, 3.0.2, 3.1.1

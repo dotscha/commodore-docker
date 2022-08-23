@@ -23,8 +23,8 @@ ENV PATH="$JAVA_HOME/bin:${PATH}"
 
 # ASL
 RUN mkdir tools/asl && \
-    wget http://john.ccac.rwth-aachen.de:8000/ftp/as/source/c_version/asl-current.tar.gz && \
-    tar -xzf asl-current.tar.gz && rm asl-current.tar.gz && mv asl-current a && \
+    wget http://john.ccac.rwth-aachen.de:8000/ftp/as/source/c_version/asl-current-142-bld228.tar.gz && \
+    tar -xzf asl-current*.tar.gz && rm asl-current*.tar.gz && mv asl-current a && \
     cp a/COPYING a/README a/TODO tools/asl && \
     cp a/Makefile.def-samples/Makefile.def-x86_64-unknown-linux a/Makefile.def && \
     make -C a && \
