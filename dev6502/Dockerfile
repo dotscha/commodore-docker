@@ -96,12 +96,16 @@ RUN unzip -d krill-v184 loader.zip && rm loader.zip && \
 
 # Bitfire+4
 RUN git clone https://github.com/dotscha/bitfire.git bf && \
+	cd bf && git checkout ac62bd6d31c754b7121e7b975587b63ce55966c2 && cd .. && \
 	mkdir bitfire+4 && \
 	make -C bf/bitfire bitnax d64write installer.prg installers && \
 	cp bf/bitfire/bitnax bf/bitfire/d64write $HOME/bin && \
 	cp bf/bitfire/installer_c64.prg bf/bitfire/loader_*_c64.inc \
-	   bf/bitfire/installer_plus4_multi*.prg bf/bitfire/loader_*_plus4_multi*.inc \
-	   bf/bitfire/installer_plus4_1551.prg bf/bitfire/loader_*_plus4_1551.inc \
+	   bf/bitfire/installer_plus4_*.prg \
+           bf/bitfire/loader_*_plus4_1541*c.inc \
+           bf/bitfire/loader_*_plus4_1541*swap.inc \
+           bf/bitfire/loader_*_plus4_1551.inc \
+           bf/bitfire/loader_*_plus4_multi.inc \
 	   bf/link_macros_*.inc bf/bitfire/request_disc.asm bf/bitfire/reset_drive.asm \
 	   bf/changelog bf/readme*.txt bitfire+4 && \
 	sed -i 's/\.\.\/bitfire\///' bf/bootdisk/build.sh && \
