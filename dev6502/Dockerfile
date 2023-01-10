@@ -116,5 +116,6 @@ RUN git clone https://github.com/dotscha/bitfire.git bf && \
 
 WORKDIR /home/dev
 
+ENV DEV6502=1
 ENV PS1="\e[0;32m[\W] $ \e[m"
 CMD /bin/bash
