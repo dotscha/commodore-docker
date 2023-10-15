@@ -1,0 +1,47 @@
+FROM alpine:3.12
+
+RUN apk update && \
+	apk add git gcc g++ scons	\
+	fltk-dev fltk-fluid \
+	portaudio-dev \
+	libsndfile-dev \
+	sdl-dev \
+	lua5.3-dev
+
+RUN mkdir /config
+WORKDIR /config
+
+RUN git clone http://github.com/istvan-v/plus4emu
+WORKDIR /config/plus4emu
+
+ENV HOME="/config"
+
+RUN scons -j 4 && scons install
+
+
+#FROM kasmweb/alpine-317-desktop:1.14.0
+FROM ghcr.io/linuxserver/baseimage-kasmvnc:alpine318
+
+
+######### Customize Container Here ###########
+
+RUN apk update &&   \
+  apk add --no-cache   \ 
+	fltk libfltk_gl libfltk_images fltk-fluid \
+	portaudio    \
+	libsndfile     \
+	sdl12-compat \
+	lua5.3 \
+	fontconfig ttf-dejavu 
+
+ENV PATH="/config/bin:${PATH}"
+
+COPY --from=0 /config/bin        /config/bin
+COPY --from=0 /config/.local     /config/.local
+COPY --from=0 /config/.plus4emu  /config/.plus4emu
+
+COPY root/ .
+
+RUN chown -R abc:abc /config/.local /config/.plus4emu
+
+######### End Customizations ###########
